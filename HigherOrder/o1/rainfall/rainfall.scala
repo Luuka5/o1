@@ -32,3 +32,16 @@ def averageRainfallFromStrings(strs: Vector[String]): Option[Int] =
   }
 
   averageRainfall(nums)
+
+def drySpell(nums: Vector[Int], length: Int): Int = {
+  val s = nums.sliding(length)
+  s.indexWhere((partial) => {
+    partial.foldLeft(true)((result, next) => {
+      if next < 0 || next > 5 then {
+        false
+      } else {
+        result
+      }
+    })
+  })
+}
